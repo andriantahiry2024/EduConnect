@@ -319,7 +319,7 @@ const ParentDashboard: React.FC<ParentDashboardProps> = ({
                         Notifications récentes
                       </h3>
                       <Badge variant="outline">
-                        {unreadNotificationsCount} New
+                        {unreadNotificationsCount} Nouveau(x)
                       </Badge>
                     </div>
                     <div className="space-y-4">
@@ -405,13 +405,13 @@ const ParentDashboard: React.FC<ParentDashboardProps> = ({
               <Card>
                 <CardContent className="p-6">
                   <h3 className="text-lg font-medium mb-4">
-                    Attendance Records
+                    Registre de présence
                   </h3>
                   <div className="space-y-4">
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                       <div className="p-4 bg-green-50 rounded-lg">
                         <div className="text-sm text-muted-foreground">
-                          Present
+                          Présent
                         </div>
                         <div className="text-2xl font-bold text-green-600">
                           42 days
@@ -419,7 +419,7 @@ const ParentDashboard: React.FC<ParentDashboardProps> = ({
                       </div>
                       <div className="p-4 bg-amber-50 rounded-lg">
                         <div className="text-sm text-muted-foreground">
-                          Tardy
+                          En retard
                         </div>
                         <div className="text-2xl font-bold text-amber-600">
                           3 days
@@ -515,12 +515,12 @@ const ParentDashboard: React.FC<ParentDashboardProps> = ({
               <Card>
                 <CardContent className="p-6">
                   <h3 className="text-lg font-medium mb-4">
-                    Academic Performance
+                    Performance académique
                   </h3>
                   <div className="space-y-6">
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                       <div className="p-4 border rounded-lg">
-                        <h4 className="font-medium mb-2">Current Grades</h4>
+                        <h4 className="font-medium mb-2">Notes actuelles</h4>
                         <div className="space-y-2">
                           <div className="flex justify-between items-center">
                             <span>Mathematics</span>
@@ -556,7 +556,9 @@ const ParentDashboard: React.FC<ParentDashboardProps> = ({
                       </div>
 
                       <div className="p-4 border rounded-lg">
-                        <h4 className="font-medium mb-2">Recent Assessments</h4>
+                        <h4 className="font-medium mb-2">
+                          Évaluations récentes
+                        </h4>
                         <div className="space-y-3">
                           <div>
                             <div className="flex justify-between">
@@ -594,7 +596,7 @@ const ParentDashboard: React.FC<ParentDashboardProps> = ({
                     </div>
 
                     <div className="p-4 border rounded-lg">
-                      <h4 className="font-medium mb-2">Grade Trend</h4>
+                      <h4 className="font-medium mb-2">Tendance des notes</h4>
                       <div className="h-60 flex items-end space-x-2">
                         <div className="flex-1 flex flex-col items-center">
                           <div
@@ -640,12 +642,14 @@ const ParentDashboard: React.FC<ParentDashboardProps> = ({
             <TabsContent value="behavior">
               <Card>
                 <CardContent className="p-6">
-                  <h3 className="text-lg font-medium mb-4">Behavior Reports</h3>
+                  <h3 className="text-lg font-medium mb-4">
+                    Rapports de comportement
+                  </h3>
                   <div className="space-y-4">
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                       <div className="p-4 bg-green-50 rounded-lg">
                         <div className="text-sm text-muted-foreground">
-                          Positive Reports
+                          Rapports positifs
                         </div>
                         <div className="text-2xl font-bold text-green-600">
                           12
@@ -653,7 +657,7 @@ const ParentDashboard: React.FC<ParentDashboardProps> = ({
                       </div>
                       <div className="p-4 bg-amber-50 rounded-lg">
                         <div className="text-sm text-muted-foreground">
-                          Neutral Reports
+                          Rapports neutres
                         </div>
                         <div className="text-2xl font-bold text-amber-600">
                           3
@@ -661,7 +665,7 @@ const ParentDashboard: React.FC<ParentDashboardProps> = ({
                       </div>
                       <div className="p-4 bg-red-50 rounded-lg">
                         <div className="text-sm text-muted-foreground">
-                          Negative Reports
+                          Rapports négatifs
                         </div>
                         <div className="text-2xl font-bold text-red-600">0</div>
                       </div>

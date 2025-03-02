@@ -1,8 +1,9 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import DashboardSidebar from "./DashboardSidebar";
 import ScheduleView from "../schedule/ScheduleView";
 import GradeManager from "../grades/GradeManager";
+import TeacherCourseManager from "../teaching/TeacherCourseManager";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -29,7 +30,8 @@ const TeacherDashboard: React.FC<TeacherDashboardProps> = ({
   notifications = 3,
   activePath = "/dashboard",
 }) => {
-  const [activeTab, setActiveTab] = useState("overview");
+  const navigate = useNavigate();
+  const [activeTab, setActiveTab] = useState("courses");
 
   // Mock data for quick stats
   const quickStats = [
@@ -115,16 +117,18 @@ const TeacherDashboard: React.FC<TeacherDashboardProps> = ({
     },
   ];
 
-  // Placeholder component for AttendanceTracker
+  // Import the real AttendanceTracker component
+  const AttendanceTrackerComponent = React.lazy(
+    () => import("../attendance/AttendanceTracker"),
+  );
+
+  // Wrapper with fallback
   const AttendanceTracker = () => (
-    <div className="bg-white p-6 rounded-lg shadow-sm">
-      <h2 className="text-2xl font-bold mb-6">Attendance Tracker</h2>
-      <p className="text-gray-500">
-        This is a placeholder for the Attendance Tracker component. The actual
-        component will allow teachers to mark and track student attendance with
-        class roster and attendance status options.
-      </p>
-    </div>
+    <React.Suspense
+      fallback={<div className="p-6">Chargement du suivi de présence...</div>}
+    >
+      <AttendanceTrackerComponent />
+    </React.Suspense>
   );
 
   return (
@@ -164,10 +168,13 @@ const TeacherDashboard: React.FC<TeacherDashboardProps> = ({
           <Tabs
             value={activeTab}
             onValueChange={setActiveTab}
-            className="w-full"
+            className="w-full space-y-4"
           >
             <TabsList className="mb-6">
               <TabsTrigger value="overview">Aperçu</TabsTrigger>
+              <TabsTrigger value="courses" id="courses-tab">
+                Cours
+              </TabsTrigger>
               <TabsTrigger value="schedule">Emploi du temps</TabsTrigger>
               <TabsTrigger value="attendance">Présences</TabsTrigger>
               <TabsTrigger value="grades">Notes</TabsTrigger>
@@ -283,7 +290,14 @@ const TeacherDashboard: React.FC<TeacherDashboardProps> = ({
                     <Button
                       variant="outline"
                       className="h-auto py-4 flex flex-col items-center justify-center gap-2"
-                      onClick={() => setActiveTab("attendance")}
+                      onClick={() => {
+                        setActiveTab("attendance");
+                        document
+                          .querySelector('[value="attendance"]')
+                          ?.dispatchEvent(
+                            new MouseEvent("click", { bubbles: true }),
+                          );
+                      }}
                     >
                       <Clock className="h-6 w-6" />
                       <span>Faire l'appel</span>
@@ -291,7 +305,14 @@ const TeacherDashboard: React.FC<TeacherDashboardProps> = ({
                     <Button
                       variant="outline"
                       className="h-auto py-4 flex flex-col items-center justify-center gap-2"
-                      onClick={() => setActiveTab("grades")}
+                      onClick={() => {
+                        setActiveTab("grades");
+                        document
+                          .querySelector('[value="grades"]')
+                          ?.dispatchEvent(
+                            new MouseEvent("click", { bubbles: true }),
+                          );
+                      }}
                     >
                       <FileText className="h-6 w-6" />
                       <span>Saisir les notes</span>
@@ -299,6 +320,14 @@ const TeacherDashboard: React.FC<TeacherDashboardProps> = ({
                     <Button
                       variant="outline"
                       className="h-auto py-4 flex flex-col items-center justify-center gap-2"
+                      onClick={() => {
+                        setActiveTab("courses");
+                        document
+                          .querySelector('[value="courses"]')
+                          ?.dispatchEvent(
+                            new MouseEvent("click", { bubbles: true }),
+                          );
+                      }}
                     >
                       <BookOpen className="h-6 w-6" />
                       <span>Télécharger des ressources</span>
@@ -306,6 +335,7 @@ const TeacherDashboard: React.FC<TeacherDashboardProps> = ({
                     <Button
                       variant="outline"
                       className="h-auto py-4 flex flex-col items-center justify-center gap-2"
+                      onClick={() => navigate("/messages")}
                     >
                       <MessageSquare className="h-6 w-6" />
                       <span>Envoyer un message aux élèves</span>
@@ -313,6 +343,15 @@ const TeacherDashboard: React.FC<TeacherDashboardProps> = ({
                   </div>
                 </CardContent>
               </Card>
+            </TabsContent>
+
+            {/* Courses Tab */}
+            <TabsContent
+              value="courses"
+              id="courses-content"
+              className="space-y-6"
+            >
+              <TeacherCourseManager />
             </TabsContent>
 
             {/* Schedule Tab */}

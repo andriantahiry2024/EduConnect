@@ -139,13 +139,73 @@ const DashboardSidebar = ({
       case "teacher":
         return [
           ...commonLinks,
-          { to: "/classes", icon: <Users size={20} />, label: "Classes" },
-          { to: "/attendance", icon: <Clock size={20} />, label: "Présence" },
-          { to: "/grades", icon: <FileText size={20} />, label: "Notes" },
           {
-            to: "/schedule",
+            to: "/dashboard/teacher",
+            icon: <BookOpen size={20} />,
+            label: "Cours",
+            onClick: () => {
+              navigate("/dashboard/teacher");
+              setTimeout(() => {
+                const coursesTab = document.querySelector('[value="courses"]');
+                if (coursesTab) {
+                  coursesTab.dispatchEvent(
+                    new MouseEvent("click", { bubbles: true }),
+                  );
+                }
+              }, 100);
+            },
+          },
+          { to: "/classes", icon: <Users size={20} />, label: "Classes" },
+          {
+            to: "/dashboard/teacher",
+            icon: <Clock size={20} />,
+            label: "Présence",
+            onClick: () => {
+              navigate("/dashboard/teacher");
+              setTimeout(() => {
+                const attendanceTab = document.querySelector(
+                  '[value="attendance"]',
+                );
+                if (attendanceTab) {
+                  attendanceTab.dispatchEvent(
+                    new MouseEvent("click", { bubbles: true }),
+                  );
+                }
+              }, 100);
+            },
+          },
+          {
+            to: "/dashboard/teacher",
+            icon: <FileText size={20} />,
+            label: "Notes",
+            onClick: () => {
+              navigate("/dashboard/teacher");
+              setTimeout(() => {
+                const gradesTab = document.querySelector('[value="grades"]');
+                if (gradesTab) {
+                  gradesTab.dispatchEvent(
+                    new MouseEvent("click", { bubbles: true }),
+                  );
+                }
+              }, 100);
+            },
+          },
+          {
+            to: "/dashboard/teacher",
             icon: <Clock size={20} />,
             label: "Emploi du temps",
+            onClick: () => {
+              navigate("/dashboard/teacher");
+              setTimeout(() => {
+                const scheduleTab =
+                  document.querySelector('[value="schedule"]');
+                if (scheduleTab) {
+                  scheduleTab.dispatchEvent(
+                    new MouseEvent("click", { bubbles: true }),
+                  );
+                }
+              }, 100);
+            },
           },
         ];
       case "parent":
@@ -188,6 +248,22 @@ const DashboardSidebar = ({
     navigate("/");
   };
 
+  // Fonction pour traduire le type d'utilisateur
+  const translateUserType = (type: string) => {
+    switch (type) {
+      case "student":
+        return "Élève";
+      case "teacher":
+        return "Enseignant";
+      case "parent":
+        return "Parent";
+      case "admin":
+        return "Administrateur";
+      default:
+        return type;
+    }
+  };
+
   return (
     <div className="h-full w-[250px] bg-white border-r flex flex-col">
       {/* School Logo */}
@@ -214,7 +290,7 @@ const DashboardSidebar = ({
         <div>
           <p className="font-medium truncate">{currentUserName}</p>
           <p className="text-xs text-muted-foreground capitalize">
-            {currentUserType}
+            {translateUserType(currentUserType)}
           </p>
         </div>
       </div>
@@ -223,11 +299,12 @@ const DashboardSidebar = ({
       <nav className="flex-1 p-4 overflow-y-auto">
         {navLinks.map((link) => (
           <SidebarLink
-            key={link.to}
+            key={link.to + link.label}
             to={link.to}
             icon={link.icon}
             label={link.label}
             active={activePath === link.to}
+            onClick={link.onClick}
           />
         ))}
       </nav>
@@ -238,6 +315,7 @@ const DashboardSidebar = ({
           to="/notifications"
           icon={<Bell size={20} />}
           label="Notifications"
+          active={activePath === "/notifications"}
         />
         <SidebarLink
           to="/settings"
