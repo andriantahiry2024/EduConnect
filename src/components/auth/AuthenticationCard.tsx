@@ -139,7 +139,7 @@ const AuthenticationCard = ({
               <Input
                 id="email"
                 type="email"
-                placeholder="your.email@example.com"
+                placeholder="votre.email@exemple.com"
                 className="pl-9"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}

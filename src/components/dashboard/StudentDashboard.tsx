@@ -139,7 +139,7 @@ const StudentDashboard: React.FC<StudentDashboardProps> = ({
       <div className="flex-1 flex flex-col overflow-hidden">
         {/* Header */}
         <header className="bg-white border-b h-16 flex items-center justify-between px-6">
-          <h1 className="text-2xl font-bold">Student Dashboard</h1>
+          <h1 className="text-2xl font-bold">Tableau de Bord Élève</h1>
           <div className="flex items-center space-x-4">
             <div className="relative">
               <Button variant="ghost" size="icon" className="relative">
@@ -175,10 +175,10 @@ const StudentDashboard: React.FC<StudentDashboardProps> = ({
             className="space-y-4"
           >
             <TabsList>
-              <TabsTrigger value="overview">Overview</TabsTrigger>
-              <TabsTrigger value="schedule">Schedule</TabsTrigger>
-              <TabsTrigger value="courses">Courses</TabsTrigger>
-              <TabsTrigger value="grades">Grades</TabsTrigger>
+              <TabsTrigger value="overview">Aperçu</TabsTrigger>
+              <TabsTrigger value="schedule">Emploi du temps</TabsTrigger>
+              <TabsTrigger value="courses">Cours</TabsTrigger>
+              <TabsTrigger value="grades">Notes</TabsTrigger>
             </TabsList>
 
             {/* Overview Tab */}
@@ -187,11 +187,11 @@ const StudentDashboard: React.FC<StudentDashboardProps> = ({
               <Card className="bg-gradient-to-r from-blue-500 to-blue-600 text-white">
                 <CardContent className="p-6">
                   <h2 className="text-2xl font-bold mb-2">
-                    Welcome back, {studentName.split(" ")[0]}!
+                    Bienvenue, {studentName.split(" ")[0]} !
                   </h2>
                   <p className="opacity-90">
-                    You have {upcomingAssignments.length} upcoming assignments
-                    and {unreadNotifications} new notifications.
+                    Vous avez {upcomingAssignments.length} devoirs à venir et{" "}
+                    {unreadNotifications} nouvelles notifications.
                   </p>
                 </CardContent>
               </Card>
@@ -204,11 +204,11 @@ const StudentDashboard: React.FC<StudentDashboardProps> = ({
                     <div className="flex items-center justify-between mb-4">
                       <h3 className="text-lg font-medium flex items-center">
                         <FileText className="h-5 w-5 mr-2 text-blue-500" />
-                        Upcoming Assignments
+                        Devoirs à venir
                       </h3>
                       <Link to="/assignments">
                         <Button variant="ghost" size="sm">
-                          View All
+                          Voir tout
                         </Button>
                       </Link>
                     </div>
@@ -243,11 +243,11 @@ const StudentDashboard: React.FC<StudentDashboardProps> = ({
                     <div className="flex items-center justify-between mb-4">
                       <h3 className="text-lg font-medium flex items-center">
                         <BookOpen className="h-5 w-5 mr-2 text-green-500" />
-                        Course Progress
+                        Progression des cours
                       </h3>
                       <Link to="/courses">
                         <Button variant="ghost" size="sm">
-                          View All
+                          Voir tout
                         </Button>
                       </Link>
                     </div>
@@ -282,7 +282,7 @@ const StudentDashboard: React.FC<StudentDashboardProps> = ({
                       </h3>
                       <Link to="/notifications">
                         <Button variant="ghost" size="sm">
-                          View All
+                          Voir tout
                         </Button>
                       </Link>
                     </div>
@@ -317,34 +317,34 @@ const StudentDashboard: React.FC<StudentDashboardProps> = ({
                   <CardContent className="p-6">
                     <h3 className="text-lg font-medium mb-4 flex items-center">
                       <BarChart className="h-5 w-5 mr-2 text-purple-500" />
-                      Recent Activity
+                      Activité récente
                     </h3>
                     <div className="space-y-4">
                       <div className="border-l-2 border-blue-500 pl-4 pb-4">
-                        <p className="text-sm text-gray-500">Today, 10:30 AM</p>
-                        <p className="font-medium">Completed Physics Quiz</p>
+                        <p className="text-sm text-gray-500">
+                          Aujourd'hui, 10:30
+                        </p>
+                        <p className="font-medium">Quiz de physique terminé</p>
                         <p className="text-sm text-gray-600">
-                          Score: 85/100 - Great job!
+                          Score : 85/100 - Bon travail !
                         </p>
                       </div>
                       <div className="border-l-2 border-green-500 pl-4 pb-4">
-                        <p className="text-sm text-gray-500">
-                          Yesterday, 3:15 PM
-                        </p>
+                        <p className="text-sm text-gray-500">Hier, 15:15</p>
                         <p className="font-medium">
-                          Submitted Literature Assignment
+                          Devoir de littérature soumis
                         </p>
                         <p className="text-sm text-gray-600">
-                          Waiting for teacher review
+                          En attente de l'évaluation du professeur
                         </p>
                       </div>
                       <div className="border-l-2 border-amber-500 pl-4">
-                        <p className="text-sm text-gray-500">
-                          Monday, 11:45 AM
+                        <p className="text-sm text-gray-500">Lundi, 11:45</p>
+                        <p className="font-medium">
+                          Rejoint le groupe d'étude de mathématiques
                         </p>
-                        <p className="font-medium">Joined Math Study Group</p>
                         <p className="text-sm text-gray-600">
-                          Next meeting on Friday
+                          Prochaine réunion vendredi
                         </p>
                       </div>
                     </div>
@@ -356,7 +356,7 @@ const StudentDashboard: React.FC<StudentDashboardProps> = ({
                   <CardContent className="p-6">
                     <h3 className="text-lg font-medium mb-4 flex items-center">
                       <Calendar className="h-5 w-5 mr-2 text-indigo-500" />
-                      Upcoming Events
+                      Événements à venir
                     </h3>
                     <div className="space-y-3">
                       <div className="flex items-start space-x-3 p-3 bg-indigo-50 rounded-md">
@@ -365,9 +365,11 @@ const StudentDashboard: React.FC<StudentDashboardProps> = ({
                           <div className="text-lg font-bold">15</div>
                         </div>
                         <div>
-                          <p className="font-medium">Math Midterm Exam</p>
+                          <p className="font-medium">
+                            Examen de mi-semestre de mathématiques
+                          </p>
                           <p className="text-sm text-gray-600">
-                            9:00 AM - 11:00 AM, Main Hall
+                            9:00 - 11:00, Grand Hall
                           </p>
                         </div>
                       </div>
@@ -377,9 +379,9 @@ const StudentDashboard: React.FC<StudentDashboardProps> = ({
                           <div className="text-lg font-bold">18</div>
                         </div>
                         <div>
-                          <p className="font-medium">Science Fair</p>
+                          <p className="font-medium">Foire aux sciences</p>
                           <p className="text-sm text-gray-600">
-                            1:00 PM - 4:00 PM, School Gymnasium
+                            13:00 - 16:00, Gymnase de l'école
                           </p>
                         </div>
                       </div>
@@ -389,9 +391,11 @@ const StudentDashboard: React.FC<StudentDashboardProps> = ({
                           <div className="text-lg font-bold">22</div>
                         </div>
                         <div>
-                          <p className="font-medium">Parent-Teacher Meeting</p>
+                          <p className="font-medium">
+                            Réunion parents-professeurs
+                          </p>
                           <p className="text-sm text-gray-600">
-                            5:30 PM - 7:30 PM, Conference Room
+                            17:30 - 19:30, Salle de conférence
                           </p>
                         </div>
                       </div>
@@ -414,11 +418,11 @@ const StudentDashboard: React.FC<StudentDashboardProps> = ({
                     <CardContent className="p-6">
                       <h3 className="text-xl font-bold mb-2">{course.name}</h3>
                       <p className="text-gray-500 mb-4">
-                        Teacher: {course.teacher}
+                        Enseignant : {course.teacher}
                       </p>
                       <div className="space-y-2">
                         <div className="flex justify-between">
-                          <span>Progress</span>
+                          <span>Progression</span>
                           <span>{course.progress}%</span>
                         </div>
                         <div className="w-full bg-gray-200 rounded-full h-2">
@@ -431,7 +435,7 @@ const StudentDashboard: React.FC<StudentDashboardProps> = ({
                       {course.nextAssignment && (
                         <div className="mt-4 pt-4 border-t">
                           <p className="text-sm font-medium">
-                            Next Assignment:
+                            Prochain devoir :
                           </p>
                           <div className="flex justify-between items-center mt-1">
                             <p className="text-sm">{course.nextAssignment}</p>
@@ -443,9 +447,9 @@ const StudentDashboard: React.FC<StudentDashboardProps> = ({
                       )}
                       <div className="mt-4 pt-4 border-t flex justify-between">
                         <Button variant="outline" size="sm">
-                          Materials
+                          Matériels
                         </Button>
-                        <Button size="sm">Go to Course</Button>
+                        <Button size="sm">Accéder au cours</Button>
                       </div>
                     </CardContent>
                   </Card>
@@ -457,7 +461,7 @@ const StudentDashboard: React.FC<StudentDashboardProps> = ({
             <TabsContent value="grades">
               <Card>
                 <CardContent className="p-6">
-                  <h3 className="text-xl font-bold mb-6">Current Grades</h3>
+                  <h3 className="text-xl font-bold mb-6">Notes actuelles</h3>
                   <div className="space-y-6">
                     {courses.map((course) => (
                       <div key={course.id} className="space-y-2">
@@ -493,13 +497,13 @@ const StudentDashboard: React.FC<StudentDashboardProps> = ({
                   </div>
                   <div className="mt-6 pt-6 border-t">
                     <div className="flex justify-between items-center">
-                      <h4 className="font-medium">Overall GPA</h4>
+                      <h4 className="font-medium">Moyenne générale</h4>
                       <Badge className="bg-green-100 text-green-800">
                         3.5 / 4.0
                       </Badge>
                     </div>
                     <p className="text-sm text-gray-500 mt-1">
-                      Current Semester: Fall 2023
+                      Semestre actuel : Automne 2023
                     </p>
                   </div>
                 </CardContent>

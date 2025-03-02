@@ -84,12 +84,14 @@ const AdminDashboard = ({
             className="space-y-6"
           >
             <div className="flex justify-between items-center">
-              <h1 className="text-2xl font-bold">Admin Dashboard</h1>
+              <h1 className="text-2xl font-bold">
+                Tableau de Bord Administrateur
+              </h1>
               <TabsList>
-                <TabsTrigger value="overview">Overview</TabsTrigger>
-                <TabsTrigger value="students">Students</TabsTrigger>
-                <TabsTrigger value="schedule">Schedule</TabsTrigger>
-                <TabsTrigger value="reports">Reports</TabsTrigger>
+                <TabsTrigger value="overview">Aperçu</TabsTrigger>
+                <TabsTrigger value="students">Élèves</TabsTrigger>
+                <TabsTrigger value="schedule">Emploi du temps</TabsTrigger>
+                <TabsTrigger value="reports">Rapports</TabsTrigger>
               </TabsList>
             </div>
 
@@ -100,7 +102,7 @@ const AdminDashboard = ({
                 <Card>
                   <CardHeader className="flex flex-row items-center justify-between pb-2">
                     <CardTitle className="text-sm font-medium">
-                      Total Students
+                      Total des élèves
                     </CardTitle>
                     <Users className="h-4 w-4 text-muted-foreground" />
                   </CardHeader>
@@ -109,7 +111,7 @@ const AdminDashboard = ({
                       {stats.totalStudents}
                     </div>
                     <p className="text-xs text-muted-foreground">
-                      +2.5% from last month
+                      +2,5% par rapport au mois dernier
                     </p>
                   </CardContent>
                 </Card>
@@ -117,7 +119,7 @@ const AdminDashboard = ({
                 <Card>
                   <CardHeader className="flex flex-row items-center justify-between pb-2">
                     <CardTitle className="text-sm font-medium">
-                      Total Teachers
+                      Total des enseignants
                     </CardTitle>
                     <Users className="h-4 w-4 text-muted-foreground" />
                   </CardHeader>
@@ -126,7 +128,7 @@ const AdminDashboard = ({
                       {stats.totalTeachers}
                     </div>
                     <p className="text-xs text-muted-foreground">
-                      +1.2% from last month
+                      +1,2% par rapport au mois dernier
                     </p>
                   </CardContent>
                 </Card>
@@ -134,7 +136,7 @@ const AdminDashboard = ({
                 <Card>
                   <CardHeader className="flex flex-row items-center justify-between pb-2">
                     <CardTitle className="text-sm font-medium">
-                      Total Classes
+                      Total des classes
                     </CardTitle>
                     <BookOpen className="h-4 w-4 text-muted-foreground" />
                   </CardHeader>
@@ -143,7 +145,7 @@ const AdminDashboard = ({
                       {stats.totalClasses}
                     </div>
                     <p className="text-xs text-muted-foreground">
-                      Same as last semester
+                      Identique au semestre précédent
                     </p>
                   </CardContent>
                 </Card>
@@ -151,7 +153,7 @@ const AdminDashboard = ({
                 <Card>
                   <CardHeader className="flex flex-row items-center justify-between pb-2">
                     <CardTitle className="text-sm font-medium">
-                      Attendance Rate
+                      Taux de présence
                     </CardTitle>
                     <TrendingUp className="h-4 w-4 text-muted-foreground" />
                   </CardHeader>
@@ -160,7 +162,7 @@ const AdminDashboard = ({
                       {stats.attendanceRate}%
                     </div>
                     <p className="text-xs text-muted-foreground">
-                      +0.8% from last month
+                      +0,8% par rapport au mois dernier
                     </p>
                   </CardContent>
                 </Card>
@@ -168,7 +170,7 @@ const AdminDashboard = ({
                 <Card>
                   <CardHeader className="flex flex-row items-center justify-between pb-2">
                     <CardTitle className="text-sm font-medium">
-                      Upcoming Events
+                      Événements à venir
                     </CardTitle>
                     <Calendar className="h-4 w-4 text-muted-foreground" />
                   </CardHeader>
@@ -176,14 +178,16 @@ const AdminDashboard = ({
                     <div className="text-2xl font-bold">
                       {stats.upcomingEvents}
                     </div>
-                    <p className="text-xs text-muted-foreground">Next 7 days</p>
+                    <p className="text-xs text-muted-foreground">
+                      7 prochains jours
+                    </p>
                   </CardContent>
                 </Card>
 
                 <Card>
                   <CardHeader className="flex flex-row items-center justify-between pb-2">
                     <CardTitle className="text-sm font-medium">
-                      Pending Requests
+                      Demandes en attente
                     </CardTitle>
                     <Bell className="h-4 w-4 text-muted-foreground" />
                   </CardHeader>
@@ -192,7 +196,7 @@ const AdminDashboard = ({
                       {stats.pendingRequests}
                     </div>
                     <p className="text-xs text-muted-foreground">
-                      Requires attention
+                      Nécessite attention
                     </p>
                   </CardContent>
                 </Card>
@@ -201,7 +205,7 @@ const AdminDashboard = ({
               {/* Quick Actions */}
               <Card>
                 <CardHeader>
-                  <CardTitle>Quick Actions</CardTitle>
+                  <CardTitle>Actions rapides</CardTitle>
                 </CardHeader>
                 <CardContent className="grid grid-cols-2 md:grid-cols-4 gap-4">
                   <Button
@@ -209,28 +213,28 @@ const AdminDashboard = ({
                     className="h-24 flex flex-col items-center justify-center gap-2"
                   >
                     <Users className="h-6 w-6" />
-                    <span>Manage Users</span>
+                    <span>Gérer les utilisateurs</span>
                   </Button>
                   <Button
                     variant="outline"
                     className="h-24 flex flex-col items-center justify-center gap-2"
                   >
                     <Calendar className="h-6 w-6" />
-                    <span>Schedule</span>
+                    <span>Emploi du temps</span>
                   </Button>
                   <Button
                     variant="outline"
                     className="h-24 flex flex-col items-center justify-center gap-2"
                   >
                     <FileText className="h-6 w-6" />
-                    <span>Reports</span>
+                    <span>Rapports</span>
                   </Button>
                   <Button
                     variant="outline"
                     className="h-24 flex flex-col items-center justify-center gap-2"
                   >
                     <Settings className="h-6 w-6" />
-                    <span>Settings</span>
+                    <span>Paramètres</span>
                   </Button>
                 </CardContent>
               </Card>
@@ -238,7 +242,7 @@ const AdminDashboard = ({
               {/* Recent Notifications */}
               <Card>
                 <CardHeader>
-                  <CardTitle>Recent Notifications</CardTitle>
+                  <CardTitle>Notifications récentes</CardTitle>
                 </CardHeader>
                 <CardContent className="space-y-4">
                   {recentNotifications.map((notification) => (
@@ -267,7 +271,7 @@ const AdminDashboard = ({
                     </div>
                   ))}
                   <Button variant="outline" className="w-full">
-                    View All Notifications
+                    Voir toutes les notifications
                   </Button>
                 </CardContent>
               </Card>
@@ -287,7 +291,7 @@ const AdminDashboard = ({
             <TabsContent value="reports" className="space-y-6">
               <Card>
                 <CardHeader>
-                  <CardTitle>Available Reports</CardTitle>
+                  <CardTitle>Rapports disponibles</CardTitle>
                 </CardHeader>
                 <CardContent className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <Button
@@ -298,9 +302,9 @@ const AdminDashboard = ({
                       <Users className="h-5 w-5 text-primary" />
                     </div>
                     <div>
-                      <h3 className="font-medium">Student Reports</h3>
+                      <h3 className="font-medium">Rapports des élèves</h3>
                       <p className="text-xs text-muted-foreground">
-                        Attendance, grades, and performance
+                        Présence, notes et performance
                       </p>
                     </div>
                   </Button>
@@ -313,9 +317,9 @@ const AdminDashboard = ({
                       <Users className="h-5 w-5 text-primary" />
                     </div>
                     <div>
-                      <h3 className="font-medium">Teacher Reports</h3>
+                      <h3 className="font-medium">Rapports des enseignants</h3>
                       <p className="text-xs text-muted-foreground">
-                        Performance and class management
+                        Performance et gestion de classe
                       </p>
                     </div>
                   </Button>
@@ -328,9 +332,9 @@ const AdminDashboard = ({
                       <School className="h-5 w-5 text-primary" />
                     </div>
                     <div>
-                      <h3 className="font-medium">Academic Reports</h3>
+                      <h3 className="font-medium">Rapports académiques</h3>
                       <p className="text-xs text-muted-foreground">
-                        Class performance and curriculum analysis
+                        Performance de classe et analyse du programme
                       </p>
                     </div>
                   </Button>
@@ -343,9 +347,9 @@ const AdminDashboard = ({
                       <BarChart className="h-5 w-5 text-primary" />
                     </div>
                     <div>
-                      <h3 className="font-medium">Administrative Reports</h3>
+                      <h3 className="font-medium">Rapports administratifs</h3>
                       <p className="text-xs text-muted-foreground">
-                        Financial and operational statistics
+                        Statistiques financières et opérationnelles
                       </p>
                     </div>
                   </Button>
@@ -354,7 +358,7 @@ const AdminDashboard = ({
 
               <Card>
                 <CardHeader>
-                  <CardTitle>Recent Reports</CardTitle>
+                  <CardTitle>Rapports récents</CardTitle>
                 </CardHeader>
                 <CardContent>
                   <div className="space-y-4">
@@ -363,15 +367,15 @@ const AdminDashboard = ({
                         <FileText className="h-5 w-5 text-muted-foreground" />
                         <div>
                           <h4 className="text-sm font-medium">
-                            Monthly Attendance Report
+                            Rapport mensuel de présence
                           </h4>
                           <p className="text-xs text-muted-foreground">
-                            Generated on May 1, 2023
+                            Généré le 1 mai 2023
                           </p>
                         </div>
                       </div>
                       <Button variant="outline" size="sm">
-                        View
+                        Voir
                       </Button>
                     </div>
 
@@ -380,15 +384,15 @@ const AdminDashboard = ({
                         <FileText className="h-5 w-5 text-muted-foreground" />
                         <div>
                           <h4 className="text-sm font-medium">
-                            Quarterly Grade Analysis
+                            Analyse trimestrielle des notes
                           </h4>
                           <p className="text-xs text-muted-foreground">
-                            Generated on April 15, 2023
+                            Généré le 15 avril 2023
                           </p>
                         </div>
                       </div>
                       <Button variant="outline" size="sm">
-                        View
+                        Voir
                       </Button>
                     </div>
 
@@ -397,15 +401,15 @@ const AdminDashboard = ({
                         <FileText className="h-5 w-5 text-muted-foreground" />
                         <div>
                           <h4 className="text-sm font-medium">
-                            Teacher Performance Review
+                            Évaluation de performance des enseignants
                           </h4>
                           <p className="text-xs text-muted-foreground">
-                            Generated on April 10, 2023
+                            Généré le 10 avril 2023
                           </p>
                         </div>
                       </div>
                       <Button variant="outline" size="sm">
-                        View
+                        Voir
                       </Button>
                     </div>
                   </div>

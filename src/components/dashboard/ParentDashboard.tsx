@@ -176,7 +176,7 @@ const ParentDashboard: React.FC<ParentDashboardProps> = ({
         <main className="flex-1 overflow-y-auto p-6">
           {/* Child Selector */}
           <div className="flex justify-between items-center mb-6">
-            <h1 className="text-2xl font-bold">Parent Dashboard</h1>
+            <h1 className="text-2xl font-bold">Tableau de Bord Parent</h1>
 
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
@@ -200,7 +200,7 @@ const ParentDashboard: React.FC<ParentDashboardProps> = ({
               </DropdownMenuTrigger>
               <DropdownMenuContent align="end" className="w-56">
                 <div className="p-2">
-                  <p className="text-sm font-medium">Select Child</p>
+                  <p className="text-sm font-medium">Sélectionner un enfant</p>
                 </div>
                 <DropdownMenuSeparator />
                 {children.map((child) => (
@@ -232,11 +232,11 @@ const ParentDashboard: React.FC<ParentDashboardProps> = ({
             className="space-y-4"
           >
             <TabsList>
-              <TabsTrigger value="overview">Overview</TabsTrigger>
-              <TabsTrigger value="attendance">Attendance</TabsTrigger>
-              <TabsTrigger value="grades">Grades</TabsTrigger>
-              <TabsTrigger value="schedule">Schedule</TabsTrigger>
-              <TabsTrigger value="behavior">Behavior</TabsTrigger>
+              <TabsTrigger value="overview">Aperçu</TabsTrigger>
+              <TabsTrigger value="attendance">Présence</TabsTrigger>
+              <TabsTrigger value="grades">Notes</TabsTrigger>
+              <TabsTrigger value="schedule">Emploi du temps</TabsTrigger>
+              <TabsTrigger value="behavior">Comportement</TabsTrigger>
             </TabsList>
 
             {/* Overview Tab */}
@@ -248,7 +248,7 @@ const ParentDashboard: React.FC<ParentDashboardProps> = ({
                     <div className="flex items-center justify-between">
                       <div>
                         <p className="text-sm font-medium text-muted-foreground">
-                          Attendance Rate
+                          Taux de présence
                         </p>
                         <h3 className="text-2xl font-bold mt-1">96%</h3>
                       </div>
@@ -270,7 +270,7 @@ const ParentDashboard: React.FC<ParentDashboardProps> = ({
                     <div className="flex items-center justify-between">
                       <div>
                         <p className="text-sm font-medium text-muted-foreground">
-                          Current GPA
+                          Moyenne actuelle
                         </p>
                         <h3 className="text-2xl font-bold mt-1">3.8</h3>
                       </div>
@@ -292,17 +292,19 @@ const ParentDashboard: React.FC<ParentDashboardProps> = ({
                     <div className="flex items-center justify-between">
                       <div>
                         <p className="text-sm font-medium text-muted-foreground">
-                          Assignments
+                          Devoirs
                         </p>
-                        <h3 className="text-2xl font-bold mt-1">5 Due</h3>
+                        <h3 className="text-2xl font-bold mt-1">5 à rendre</h3>
                       </div>
                       <div className="h-12 w-12 rounded-full bg-amber-100 flex items-center justify-center">
                         <BookOpen className="h-6 w-6 text-amber-600" />
                       </div>
                     </div>
                     <div className="mt-4 text-sm text-muted-foreground">
-                      <span className="text-amber-600 font-medium">2 Late</span>{" "}
-                      • 3 Upcoming
+                      <span className="text-amber-600 font-medium">
+                        2 en retard
+                      </span>{" "}
+                      • 3 à venir
                     </div>
                   </CardContent>
                 </Card>
@@ -314,7 +316,7 @@ const ParentDashboard: React.FC<ParentDashboardProps> = ({
                   <CardContent className="p-6">
                     <div className="flex items-center justify-between mb-4">
                       <h3 className="text-lg font-medium">
-                        Recent Notifications
+                        Notifications récentes
                       </h3>
                       <Badge variant="outline">
                         {unreadNotificationsCount} New
@@ -352,7 +354,9 @@ const ParentDashboard: React.FC<ParentDashboardProps> = ({
                         className="w-full text-sm"
                         asChild
                       >
-                        <Link to="/notifications">View All Notifications</Link>
+                        <Link to="/notifications">
+                          Voir toutes les notifications
+                        </Link>
                       </Button>
                     </div>
                   </CardContent>
@@ -362,7 +366,7 @@ const ParentDashboard: React.FC<ParentDashboardProps> = ({
                 <Card>
                   <CardContent className="p-6">
                     <h3 className="text-lg font-medium mb-4">
-                      Upcoming Events
+                      Événements à venir
                     </h3>
                     <div className="space-y-4">
                       {upcomingEvents.map((event) => (
@@ -388,7 +392,7 @@ const ParentDashboard: React.FC<ParentDashboardProps> = ({
                         className="w-full text-sm"
                         asChild
                       >
-                        <Link to="/calendar">View Full Calendar</Link>
+                        <Link to="/calendar">Voir le calendrier complet</Link>
                       </Button>
                     </div>
                   </CardContent>

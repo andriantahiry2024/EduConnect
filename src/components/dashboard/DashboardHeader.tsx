@@ -10,7 +10,7 @@ interface DashboardHeaderProps {
 }
 
 const DashboardHeader: React.FC<DashboardHeaderProps> = ({
-  title = "Dashboard",
+  title = "Tableau de bord",
   notificationCount = 3,
 }) => {
   return (
